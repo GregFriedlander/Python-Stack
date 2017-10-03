@@ -1,0 +1,17 @@
+pip install Django - installed a library; “requirement already satisfied”; installed collected package; described out all the exceptions; 
+
+pip list - gave me a list of all the installed libraries;
+
+pip install Django - gave me the same return as the first time I ran it because I believe it was already installed the first time. 
+
+pip freeze - give you the versions of the libraries you are using
+
+pip freeze > requirements.txt - creates a .txt file in the directory that you’re in with all the of the versions of the libraries you have installed. 
+
+pip uninstall Django - lists out all the files within the package and then asks you if you want to proceed
+
+pip show Django - gives you a breakdown of the properties of the Django library…name; version;summary;home-page;author;author email; license; location; requires;
+
+pip search Flask - gives the index for the Flask package
+
+ 
