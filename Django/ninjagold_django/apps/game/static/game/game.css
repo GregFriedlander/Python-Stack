@@ -1,0 +1,52 @@
+h1 {
+    color: gold;
+    background-color: black;
+}
+
+h5 {
+    color: gold;
+    background-color: black;
+}
+
+
+form {
+    display: inline-block;
+    padding: 25px;
+    border: 1px solid black;
+    width: 235px;
+    background-color: gold;
+
+}
+
+.places {
+    text-align: center;
+}
+
+.activity {
+    width: 1100px;
+    height: 250px;
+    margin-left: 35px;
+    overflow: scroll;
+    background-color: black;
+    /* text-align: center; */
+    padding: 25px;
+    border: 1px solid gold;
+}
+
+body {
+    background-color: black;
+}
+
+.earned {
+    color: green;
+}
+
+.lost {
+    color: red;
+}
+
+button {
+    background-color: gold;
+    margin-left: 35px;
+    margin-top: 15px;
+}

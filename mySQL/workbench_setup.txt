@@ -1,0 +1,7 @@
+USE sys;
+SELECT * FROM sys_config;
+SELECT value FROM sys_config;
+SELECT * FROM sys_config;
+SELECT set_by, value FROM sys_config;
+SELECT * FROM sys_config;
+SELECT id FROM sys_config;

@@ -1,0 +1,20 @@
+.addword {
+    display: inline-block;
+    vertical-align: top;
+    width: 350px;
+    padding-left: 15px;
+    border: 1px solid black;
+}
+
+.log {
+    display: inline-block;
+    width: 400px;
+    height: 350px;
+    padding-left: 15px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+
+.big {
+    font-size: 2em;
+}

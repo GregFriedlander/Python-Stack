@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='thewall.css')}}">
+    <title>The Wall Login</title>
+</head>
+<body>
+
+    <h1>Welcome to THE WALL</h1>
+
+    <!-- REGISTRATION FORM -->
+
+    <form class="registerform" action="/register" method="POST">
+        {% with messages = get_flashed_messages(category_filter=["reg"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <table>
+            <h3>Register Here!</h3>
+            <tr>
+                <td>First Name:</td>
+                <td><input type="text" name="first_name"></td>
+            </tr>
+            <tr>
+                <td>Last Name:</td>
+                <td><input type="text" name="last_name"></td>
+            </tr>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm-Password:</td>
+                <td><input type="password" name="confirm_password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Register"></td>
+            </tr>
+        </table>
+    </form>
+
+<!-- LOGIN FORM  -->
+
+    <form class="loginform" action="/login" method="POST">
+        {% with messages = get_flashed_messages(category_filter=["log"]) %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <table>
+            <h3>Login Here!</h3>
+            <tr>
+                <td>Email:</td>
+                <td><input type="text" name="email"></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Log In"></td>
+            </tr>
+        </table>
+    </form>    
+</body>
+</html>

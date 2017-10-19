@@ -1,0 +1,39 @@
+.divholder {
+    /* border: black solid 1px; */
+    width: 1200px;
+    height: 220px;
+}
+
+.place {
+    display: inline-block;
+    border: green solid 1px;
+    width: 250px;
+    height: 180px;
+    margin-left: 36px;
+    margin-top: 8px;
+    vertical-align: top;
+}
+
+h4 {
+    text-align: center;
+    font-size: 22px;
+}
+
+h5 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+}
+
+.activities {
+    border: black solid 1px;
+    width: 1200px;
+    height: 220px;
+    overflow: scroll;
+}
+
+.restart {
+    margin-top: 30px;
+}

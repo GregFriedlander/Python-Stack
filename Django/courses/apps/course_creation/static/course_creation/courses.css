@@ -1,0 +1,15 @@
+h2 {
+    color: blue;
+}
+
+input {
+    width: 300px;
+}
+
+.descbox {
+    height: 55px;
+}
+
+td {
+    vertical-align: top;
+}

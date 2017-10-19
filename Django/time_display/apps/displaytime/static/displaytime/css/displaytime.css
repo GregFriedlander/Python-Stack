@@ -1,0 +1,10 @@
+.upperbox {
+    border: 1px solid black; 
+    width: 300px;
+    text-align: center;
+}
+
+body {
+    text-align: -moz-center; 
+    text-align: -webkit-center;
+}

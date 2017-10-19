@@ -1,0 +1,31 @@
+.button {
+    color: blue;
+    margin-left: 280px;
+}
+
+#form1 {
+    border: black solid 1px; 
+    width: 400px;
+    height: 400px; 
+    padding: 15px;
+}
+
+
+.rightside {
+    padding-left: 65px;
+}
+
+textarea {
+    width: 300px;
+    height: 60px;
+}
+
+input.button {
+    appearance: none;
+}
+
+h2 {
+    color: red; 
+}
+
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='thewall.css')}}">
+    <title>The Wall Messageboard</title>
+</head>
+<body>
+    <div class="header">
+        <h2>CodingDojo Wall</h2>
+        <p class="welcome">Welcome {{session['user']}}</p>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="message">
+        <form action="/messagepost" method="POST">
+        <h3>Post a message:</h3>
+        <textarea name="message"></textarea>
+        <input type="hidden" value="{{session['user_id']}}" name="user_id">
+        <input type="submit" value="Post Message">
+        </form>
+    </div>
+    <div class="actualwall">
+        {% for x in message %}
+
+        <div class="messagebox"> 
+            <p>{{ x['first_name'] }} {{ x['created_at'] }}</p>
+            {{ x['message'] }}<br>
+        </div>
+
+            {% for i in comment %}    
+
+                {% if i['message_id'] == x['id'] %}
+                    <div class="commentbox">
+                        <p>{{ i['first_name'] }} {{ i['created_at'] }}</p>
+                        <p>{{ i['comment'] }}</p>
+                    </div>
+                    
+                {% endif %}
+
+            {% endfor %}
+            
+            <form action="/commentpost" method="POST">
+            <input type="textbox" name="comment">
+            <input type="hidden" value="{{session['user_id']}}" name="user_id">
+            <input type="hidden" value="{{ x['id'] }}" name="message_id">
+            <input type="submit" value="Post Comment">
+            </form>
+        {% endfor %}
+    </div>
+</body>
+</html>

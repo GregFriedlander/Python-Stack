@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ninja Gold: Django Edition</title>
+        {% load static %}
+    <link rel="stylesheet" href="{% static 'game/game.css' %}" media="screen" title="no title" charset="utf-8">
+</head>
+<body>
+    <h1>Total Gold: {{request.session.total}}</h1>
+    <div class="places">
+        <form action="/process_money/farm" method="POST">
+            {% csrf_token %}
+            <h3>Farm</h3>
+            <h4>(Earns 10-20 golds)</h4>
+            <input type="submit" value="Find Gold">
+        </form>
+        <form action="/process_money/cave" method="POST">
+            {% csrf_token %}
+            <h3>Cave</h3>
+            <h4>(Earns 5-10 golds)</h4>
+            <input type="submit" value="Find Gold">
+        </form>
+        <form action="/process_money/house" method="POST">
+            {% csrf_token %}
+            <h3>House</h3>
+            <h4>(Earns 2-5 golds)</h4>
+            <input type="submit" value="Find Gold">
+        </form>
+        <form action="/process_money/casino" method="POST">
+            {% csrf_token %}
+            <h3>Casino</h3>
+            <h4>(Earns/Takes 0-50 golds)</h4>
+            <input type="submit" value="Find Gold">
+        </form>
+    </div>
+    <h5>Activity:</h5>
+    <div class="activity">
+        {% for log in request.session.logs reversed %}
+        <p class="{{ log.class }}">{{ log.message }}</p>
+        {% endfor %}
+    </div>
+    <a href="/restart"><button>RESTART</button></a>
+</body>
+</html>

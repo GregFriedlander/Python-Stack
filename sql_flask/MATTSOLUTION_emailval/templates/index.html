@@ -1,0 +1,49 @@
+<html>
+<head>
+  <title>Friends</title>
+</head>
+<body>
+  
+<h2>Email List</h2>
+<!-- with all the data we can then construct a more structured output -->
+<table id="friendlist">
+{% for item in all_emails: %}
+<tr>
+   <td>{{ item['email'] }}</td>
+   <td>{{ item['created_at'] }}</td>
+
+{% endfor %}
+</table>
+  <h2>Enter Email</h2>
+  {% if session['emailval'] == False %}
+  <h3>Email is not Valid !</h3>
+  {% endif %}
+  <form action='/process' method='POST'>
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    {% for message in messages %}
+    <p>{{message}}</p>
+    {% endfor %}
+    {% endif %}
+    {% endwith %}
+    <table id="submittable">
+      <tr>
+        <td>Email Address: </td><td><input type="text" name="email" id="email"></label></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Add"></td>
+      </tr>
+    </table>
+  </form>
+  <form action='/check' method='POST'>
+    <table id="checktable">
+      <tr>
+        <td>Email Address: </td><td><input type="text" name="emailcheck" id="emailcheck"></label></td>
+      </tr>
+      <tr>
+        <td><input type="submit" value="Check"></td>
+      </tr>
+    </table>
+  </form>
+</body>
+</html>

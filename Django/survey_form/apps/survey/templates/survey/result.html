@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Thanks for submitting this form. You have submitted this form {{ request.session.tries }} times now </h1>
+    <h2>Submited Info</h2>
+    <p>Name: {{ request.session.name }}</p>
+    <p>Dojo Location: {{ request.session.location }}</p>
+    <p>Favorite Language: {{ request.session.language }}</p>
+    <p>Comment: {{ request.session.comment }}</p>
+
+    <form action="/survey/goback">
+        {% csrf_token %}
+        <input type="submit" class="button" value="Go Back">
+    </form>
+    <a href="/reset"><button>Reset Top Counter</button></a>
+</body>
+</html>
