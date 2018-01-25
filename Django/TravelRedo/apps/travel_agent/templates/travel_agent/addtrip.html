@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add a Trip</title>
+</head>
+<body>
+    <a href="/homepage">Home</a>
+    <a href="/logout">Logout</a>
+    <h2>Add a trip</h2>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif%}
+    <form action="/processtrip" method="POST">
+        {% csrf_token %}
+        <table>
+            <tr>
+                <td>Destination</td>
+                <td><input type="text" name="destination"></td>
+            </tr>
+            <tr>
+                <td>Description</td>
+                <td><input type="text" name="description"></td>
+            </tr>
+            <tr>
+                <td>Travel Date From:</td>
+                <td><input type="date" name="start"></td>
+            </tr>
+            <tr>
+                <td>Travel Date To:</td>
+                <td><input type="date" name="end"></td>
+            </tr>
+        </table>
+        <input type="hidden" name="creator" value="{{ request.session.id }}">
+        <input type="submit" value="Add">
+    </form>
+</body>
+</html>

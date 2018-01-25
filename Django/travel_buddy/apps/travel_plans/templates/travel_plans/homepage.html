@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Travel Buddy Homepage</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    <h1>Hello, {{ request.session.username }}!</h1>
+    <table>
+        <h4>Your Trip Schedules:</h4>
+        <tr>
+            <td>Destination</td>
+            <td>Travel Start Date</td>
+            <td>Travel End Date</td>
+            <td>Plan</td>
+        </tr>
+        {% for trips in user_trips %}
+            <tr>
+                <td><a href="/destination/{{ trips.id }}">{{ trips.destination}}</a></td>
+                <td>{{ trips.start}}</td>
+                <td>{{ trips.end}}</td>
+                <td>{{ trips.description}}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <table>
+        <h4>Other User's Travel Plans:</h4>
+        <tr>
+            <td>Name</td>
+            <td>Destination</td>
+            <td>Travel Start Date</td>
+            <td>Travel End Date</td>
+            <td>Do you want to join</td>
+        </tr>
+        {% for users in not_user %}
+        <tr>
+            <td>{{ users.name }}</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><a href="">Join</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add">Add Travel Plan</a>
+</body>
+</html>

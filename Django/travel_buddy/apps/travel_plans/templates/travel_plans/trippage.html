@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trip Page</title>
+</head>
+<body>
+    <a href="/homepage">Home</a>
+    <a href="/logout">Logout</a>
+    <h1>{{ trip.destination }}</h1>
+    <h3>Planned by:{{ trip.users.name }}</h3>
+    <h3>Description: {{ trip.description }}</h3>
+    <h3>Travel Date From: {{ trip.start }}</h3>
+    <h3>Travel Date To: {{ trip.end }}</h3>
+    <br>
+    <h1>Others Joining on the trip:</h1>
+    
+    <h3></h3>
+</body>
+</html>

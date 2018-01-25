@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>TravelBuddy Homepage</title>
+</head>
+<body>
+    <a href="/logout">Logout</a>
+    <h1>Hello, {{ request.session.username }}!</h1>
+    <table>
+        <h4>Your Trip Schedules:</h4>
+        <tr>
+            <td>Destination</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td>Plan</td>
+        </tr>
+        {% for trip in user_trips %}
+        <tr>
+            <td><a href="destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+            <td>{{ trip.start }}</td>
+            <td>{{ trip.end }}</td>
+            <td>{{ trip.description }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <table>
+        <h4>Other User's Travel Plans:</h4>
+        <tr>
+            <td>Name</td>
+            <td>Destination</td>
+            <td>Start Date</td>
+            <td>End Date</td>
+            <td>Do you want to join</td>
+        </tr>
+        {% for trip in other_trips %}
+        <tr>
+            <td>{{ trip.creator.name }}</td>
+            <td><a href="destination/{{ trip.id }}">{{ trip.destination }}</a></td>
+            <td>{{ trip.start }}</td>
+            <td>{{ trip.end }}</td>
+            <td><a href="/join/{{ trip.id }}">Join</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="/add">Add Travel Plan</a>
+</body>
+</html>

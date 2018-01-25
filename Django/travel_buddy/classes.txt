@@ -1,0 +1,17 @@
+class Users(models.Model):
+    name = models.CharField(max_length=255)
+    username = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
+    objects = UsersManager()
+
+class Trips2(models.Model):
+    destination = models.CharField(max_length=255)
+    description = models.CharField(max_length=255)
+    users = models.ManyToManyField(Users, related_name="trips")
+    start = models.DateField()
+    end = models.DateField()
+    created_at = models.DateTimeField(auto_now_add = True)
+    updated_at = models.DateTimeField(auto_now = True)
